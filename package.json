@@ -1,0 +1,47 @@
+{
+  "name": "@engyn/open-colorjs",
+  "version": "1.0.0",
+  "keywords": [
+    "color",
+    "colorscheme",
+    "color swatches",
+    "SCSS",
+    "Less",
+    "Stylus",
+    "CSS",
+    "open-color"
+  ],
+  "description": "Javascript wrapper of open-color",
+  "license": "MIT",
+  "author": "Kyle Salter <kyle@kylesalter.com> (https://kylesalter.com)",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/preset-env": "^7.4.1",
+    "@babel/preset-typescript": "^7.3.3",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "open-color": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:engyn/open-colorjs.git"
+  }
+}
